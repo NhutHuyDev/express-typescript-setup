@@ -1,14 +1,14 @@
-import { Request, Response, NextFunction } from "express";
-import { ForbiddenError } from "../core/error.responses";
+import { Request, Response, NextFunction } from 'express'
+import { ForbiddenError } from '../core/error.responses'
 
 const requireUser = async (_: Request, res: Response, next: NextFunction) => {
-  const user = res.locals.user;
+  const user = res.locals.user
 
   if (!user) {
-    throw new ForbiddenError();
+    throw new ForbiddenError()
   }
 
-  return next();
-};
+  return next()
+}
 
-export default requireUser;
+export default requireUser

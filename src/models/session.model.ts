@@ -1,22 +1,22 @@
-import { Ref, getModelForClass, prop } from "@typegoose/typegoose";
-import { User } from "../models/user.model";
+import { Ref, getModelForClass, prop } from '@typegoose/typegoose'
+import { User } from '../models/user.model'
 
 export class Session {
   @prop({ ref: () => User })
-  user: Ref<User>;
+  user: Ref<User>
 
   @prop({})
   refreshToken: string
 
   @prop({ default: true })
-  valid: boolean;
+  valid: boolean
 }
 
 const SessionModel = getModelForClass(Session, {
   schemaOptions: {
-    collection: "Sessions",
-    timestamps: true,
-  },
-});
+    collection: 'Sessions',
+    timestamps: true
+  }
+})
 
-export default SessionModel;
+export default SessionModel

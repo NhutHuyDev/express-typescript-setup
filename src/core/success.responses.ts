@@ -1,18 +1,18 @@
-import { Response } from "express";
-import { STATUS_CODE } from "../utils/httpStatusRespones";
+import { Response } from 'express'
+import { STATUS_CODE } from '../utils/httpStatusRespones'
 
 class SuccessResponse {
-  code: number;
-  status: string;
-  data: any;
+  code: number
+  status: string
+  data: any
   constructor(statusCode: number, metadata: any) {
-    this.code = statusCode;
-    this.status = "sucess";
-    this.data = metadata;
+    this.code = statusCode
+    this.status = 'sucess'
+    this.data = metadata
   }
 
   send(res: Response) {
-    return res.status(this.code).json(this);
+    return res.status(this.code).json(this)
   }
 }
 
@@ -21,7 +21,7 @@ class SuccessResponse {
  */
 export class OkResponse extends SuccessResponse {
   constructor(metadata: any) {
-    super(STATUS_CODE.OK, metadata);
+    super(STATUS_CODE.OK, metadata)
   }
 }
 
@@ -30,6 +30,6 @@ export class OkResponse extends SuccessResponse {
  */
 export class CreatedResponse extends SuccessResponse {
   constructor(metadata: any) {
-    super(STATUS_CODE.CREATED, metadata);
+    super(STATUS_CODE.CREATED, metadata)
   }
 }
